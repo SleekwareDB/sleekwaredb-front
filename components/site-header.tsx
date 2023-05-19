@@ -7,6 +7,7 @@ import { Icons } from "@/components/icons"
 import { MainNav } from "@/components/main-nav"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { usePathname } from 'next/navigation';
+import AccountMenu from "./account-menu";
 
 export function SiteHeader() {
   const pathname = usePathname();
@@ -48,20 +49,7 @@ export function SiteHeader() {
             </Link>
             <ThemeToggle />
             { !publicPath.includes(pathname) ? (
-              <Link
-                href={'/'}
-                rel="noreferrer"
-              >
-                <div
-                  className={buttonVariants({
-                    size: "sm",
-                    variant: "ghost",
-                  })}
-                >
-                  <Icons.logout className="h-5 w-5 fill-current" />
-                  <span className="sr-only">Logout</span>
-                </div>
-              </Link>
+              <AccountMenu />
             ) : null}
           </nav>
         </div>
